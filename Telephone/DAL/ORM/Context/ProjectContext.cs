@@ -15,6 +15,7 @@ namespace Telephone.DAL.ORM.Context
             Database.Connection.ConnectionString = "Server=MONSTER;DataBase=Contacts;UID=sa;PWD=1234;";
         }
         public DbSet<AppUser> AppUsers { get; set; }
+
      
 
     }
