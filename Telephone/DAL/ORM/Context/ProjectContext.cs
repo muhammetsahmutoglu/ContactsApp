@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,8 +13,14 @@ namespace Telephone.DAL.ORM.Context
     {
         public ProjectContext()
         {
-            Database.Connection.ConnectionString = "Server=MONSTER;DataBase=Contacts;UID=sa;PWD=1234;";
+            Database.Connection.ConnectionString = "Server=DESKTOP-4RGVUN0\\SQLEXPRESS;DataBase=Contacts;integrated security=True;MultipleActiveResultSets=True;";
         }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
+        }
+
         public DbSet<AppUser> AppUsers { get; set; }
 
      
